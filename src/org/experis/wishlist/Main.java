@@ -22,7 +22,6 @@ public class Main {
         // creo spazio percorso file
         File file = new File(pathFile);
 
-
         // se esiste lista txt recupero i dati al suo interno
         if(file.exists()){
             try {
@@ -30,16 +29,13 @@ public class Main {
 
                 // prendo ogni riga del file txt e lo metto dentro alla mia lista
                 while (fileScanner.hasNextLine()) {
-                    String myGift = fileScanner.nextLine();
-                    giftsList.add(new Gift(myGift));
+                    giftsList.add(new Gift(fileScanner.nextLine()));
                 }
                 fileScanner.close();
             } catch (FileNotFoundException e) {
                 System.out.println("File not found: " + e.getMessage());
             }
         }
-
-
 
         // apro un ciclo while per chiedere all utente di aggiungere alla lista regali
         boolean exit = false;
@@ -50,10 +46,15 @@ public class Main {
             String choice = scan.nextLine().toLowerCase();
             switch (choice){
                 case "y":
-                    // aggiungo alal lista elemento
+                    // aggiungo alla lista elemento
                     System.out.print("What you want add?: ");
                     String gift = scan.nextLine();
-                    giftsList.add((new Gift(gift)));
+                    // controllo se il regalo è presente nella lista
+                    if(giftsList.contains((new Gift(gift)))){
+                        System.out.println("Gift already inside!");
+                    }else {
+                     giftsList.add((new Gift(gift)));
+                    }
                     break;
 
                     case "n":
@@ -73,8 +74,8 @@ public class Main {
         System.out.println(giftsList);
 
         // scrivo su file la lista desideri
-        try(FileWriter fileWriter = new FileWriter(new File("./resources/wish-list.txt"))) {
-            for(Gift gift : giftsList){
+        try (FileWriter fileWriter = new FileWriter(new File("./resources/wish-list.txt"))) {
+            for (Gift gift : giftsList) {
                 fileWriter.write(gift.toString());
             }
         } catch (IOException e) {
