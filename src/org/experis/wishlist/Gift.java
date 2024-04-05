@@ -17,7 +17,7 @@ public class Gift implements Comparable<Gift> {
     public String toString() {
         return "Gift{" +
                 "name='" + name + '\'' +
-                '}';
+                '}'+"\n";
     }
 
 
