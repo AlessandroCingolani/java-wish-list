@@ -74,7 +74,7 @@ public class Main {
         System.out.println(giftsList);
 
         // scrivo su file la lista desideri
-        try (FileWriter fileWriter = new FileWriter(new File("./resources/wish-list.txt"))) {
+        try (FileWriter fileWriter = new FileWriter(new File(pathFile))) {
             for (Gift gift : giftsList) {
                 fileWriter.write(gift.toString());
             }
