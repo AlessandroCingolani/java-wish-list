@@ -4,4 +4,4 @@ Ad ogni iterazione deve mostrare la lunghezza della lista e chiedere all’utent
 
 Al termine dell’inserimento ordinare la lista e stampare a video la lista ordinata.
 
-### Bonus: Salvare la lista su file e recuperarla quando si avvia il programma, in modo da aggiungere i nuovi elementi in coda a quelli già scritti.
+Bonus: Salvare la lista su file e recuperarla quando si avvia il programma, in modo da aggiungere i nuovi elementi in coda a quelli già scritti.
